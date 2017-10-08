@@ -37,7 +37,7 @@ NSString* INFO_VOLUME_CHANGED = @"(NATIVE AUDIO) Volume changed.";
 
     // Allows the application to mix its audio with audio from other apps.
     if (![session setCategory:AVAudioSessionCategoryAmbient
-                  withOptions:AVAudioSessionCategoryOptionMixWithOthers
+                  withOptions:AVAudioSessionCategoryOptionDuckOthers
                         error:&setCategoryError]) {
 
         NSLog (@"Error setting audio session category.");
@@ -45,7 +45,10 @@ NSString* INFO_VOLUME_CHANGED = @"(NATIVE AUDIO) Volume changed.";
     }
 
     [session setActive: YES error: nil];
-    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [session
+     setCategory:AVAudioSessionCategoryAmbient
+     withOptions:AVAudioSessionCategoryOptionDuckOthers
+     error:nil];
 }
 
 - (void) parseOptions:(NSDictionary*) options
