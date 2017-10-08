@@ -46,7 +46,7 @@ Download it at the ngCordova [website](http://www.ngcordova.com) or the [reposit
 
 Via Cordova CLI:
 ```bash
-cordova plugin add cordova-plugin-nativeaudio
+cordova plugin add https://github.com/thessler27/cordova-plugin-nativeaudio
 ```
 
 ## Usage
